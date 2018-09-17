@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+D:\WORK\GREEN_ACADEMY\introduction_to_java_web\shigotonikki\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\849818975.index
+\m-todo\src\main\java
+D:\WORK\GREEN_ACADEMY\introduction_to_java_web\shigotonikki\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\330774415.index
+\m-todo\src\main\resources
+D:\WORK\GREEN_ACADEMY\introduction_to_java_web\shigotonikki\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3398592037.index
+\app\src\main\java
+D:\WORK\GREEN_ACADEMY\introduction_to_java_web\shigotonikki\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1966633299.index
+\app\src\main\resources
+D:\WORK\GREEN_ACADEMY\introduction_to_java_web\shigotonikki\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1687210373.index
+\m-todo\src\main\resources

@@ -1,0 +1,5 @@
+package jp.com.java.utils;
+
+public enum Status {
+
+}
