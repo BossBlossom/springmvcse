@@ -19,7 +19,7 @@ import jp.com.java.service.Service_M_Todo;
 
 @Controller
 @RequestMapping("/home")
-public class Controller_M_Todo 
+public class Controller_M_Todo
 {
 	@Autowired
 	private Service_M_Todo serviceM_Todo;
@@ -54,12 +54,73 @@ public class Controller_M_Todo
 		return "redirect:/home";
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String update(@RequestParam(name="idTodo") int idTodo, @RequestParam(name="action") String action, Model model)
+	@RequestMapping(value = "/start", method = RequestMethod.GET)
+	public String start(@RequestParam(name="idTodo") int idTodo, Model model)
 	{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
 		LocalDateTime now = LocalDateTime.now();
 		String time = dtf.format(now);
+		
+		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);
+		
+		m_todo.setStartAT(time);
+		m_todo.setStatus("In-Progress");
+		serviceM_Todo.updateM_Todo(m_todo);
+		
+		return "redirect:/home";
+	}
+	
+	@RequestMapping(value = "/end", method = RequestMethod.GET)
+	public String end(@RequestParam(name="idTodo") int idTodo, Model model)
+	{
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+		LocalDateTime now = LocalDateTime.now();
+		String time = dtf.format(now);
+		
+		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);
+		
+		m_todo.setEndAT(time);
+		m_todo.setStatus("Done");
+		serviceM_Todo.updateM_Todo(m_todo);
+		
+		return "redirect:/home";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(@RequestParam(name="idTodo") int idTodo, Model model)
+	{
+		serviceM_Todo.deleteM_Todo(serviceM_Todo.m_todoFindById(idTodo));
+		
+		return "redirect:/home";
+	}
+	
+	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
+	public String cancel(@RequestParam(name="idTodo") int idTodo, Model model)
+	{
+		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);
+		
+		m_todo.setStatus("Canceled");
+		serviceM_Todo.updateM_Todo(m_todo);
+		
+		return "redirect:/home";
+	}
+	
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public String view(@RequestParam(name="idTodo") int idTodo, Model model)
+	{
+		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);
+		
+		ModelDate date = new ModelDate();
+		date.fromM_Todo(m_todo);
+		model.addAttribute("m_todo", date);
+		model.addAttribute("mode", "view");
+		
+		return "view";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(@RequestParam(name="idTodo") int idTodo, Model model)
+	{
 		
 		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);
 		
@@ -70,40 +131,12 @@ public class Controller_M_Todo
 		date.fromM_Todo(m_todo);
 		model.addAttribute("m_todo", date);
 		model.addAttribute("mode", "update");
-		if(action.equals("edit"))
-		{
-			return "detail";
-		}
-		if(action.equals("delete"))
-		{
-			serviceM_Todo.deleteM_Todo(serviceM_Todo.m_todoFindById(idTodo));
-			return "redirect:/home";
-		}
-		if(action.equals("start"))
-		{
-			m_todo.setStartAT(time);
-			m_todo.setStatus("In-Progress");
-			serviceM_Todo.updateM_Todo(m_todo);
-			return "redirect:/home";
-		}
-		if(action.equals("cancel"))
-		{
-			m_todo.setStatus("Canceled");
-			serviceM_Todo.updateM_Todo(m_todo);
-			return "redirect:/home";
-		}
-		if(action.equals("end"))
-		{
-			m_todo.setEndAT(time);
-			m_todo.setStatus("Done");
-			serviceM_Todo.updateM_Todo(m_todo);
-			return "redirect:/home";
-		}
-		return "view";
+		
+		return "detail";
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String handleUpdate(@RequestParam(name="idTodo") int idTodo, @RequestParam(name="action") String action, @ModelAttribute("todos") ModelDate date, BindingResult result, Model model)
+	public String handleUpdate(@RequestParam(name="idTodo") int idTodo, @ModelAttribute("todos") ModelDate date, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
 			return "detail";
