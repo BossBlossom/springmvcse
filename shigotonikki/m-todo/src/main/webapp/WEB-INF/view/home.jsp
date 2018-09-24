@@ -8,8 +8,8 @@
 <head>
 <link rel="stylesheet" href="<spring:url value="/resources/css/app.css"/>" type="text/css">
 </head>
-<body>
-<a onclick="window.location.href='<spring:url value="/home" />'"><h4>M-TODO</h4></a>
+<body style="margin:auto;">
+<a onclick="window.location.href='<spring:url value="/home" />'"><h3 class="blue">M-TODO</h3></a>
 <table class="tbl-border">
 <thead>
 	<tr>

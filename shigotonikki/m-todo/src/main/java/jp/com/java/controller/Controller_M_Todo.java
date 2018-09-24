@@ -58,7 +58,7 @@ public class Controller_M_Todo
 	public String start(@RequestParam(name="idTodo") int idTodo, Model model)
 	{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-		LocalDateTime now = LocalDateTime.now();
+		LocalDateTime now = LocalDateTime.now().withHour(12).withMinute(00);
 		String time = dtf.format(now);
 		
 		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);
@@ -74,7 +74,7 @@ public class Controller_M_Todo
 	public String end(@RequestParam(name="idTodo") int idTodo, Model model)
 	{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-		LocalDateTime now = LocalDateTime.now();
+		LocalDateTime now = LocalDateTime.now().withHour(12).withMinute(00);
 		String time = dtf.format(now);
 		
 		M_Todo m_todo = serviceM_Todo.m_todoFindById(idTodo);

@@ -1,7 +1,5 @@
 package jp.com.java.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import jp.com.java.entity.M_Todo;
 

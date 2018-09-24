@@ -1,0 +1,33 @@
+.error {
+	color: red;
+}
+.blue{
+	color: blue;
+}
+.New {
+	background: #F08080;
+}
+
+.Done {
+	background: #D3D3D3;
+}
+
+.In-Progress {
+	background: #ADD8E6;
+}
+
+.Canceled {
+	background: #FFFF66;
+}
+
+table.tbl-border {
+	border-spacing: 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.tbl-border th, td {
+	margin: 0; padding : 5px;
+	text-align: left;
+	padding: 5px;
+}
