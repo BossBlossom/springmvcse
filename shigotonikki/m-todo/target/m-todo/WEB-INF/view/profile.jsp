@@ -9,13 +9,13 @@
 <link rel="stylesheet" href="<spring:url value='/resources/css/app.css'/>">
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 </head>
-<body>
-<a onclick="window.location.href='<spring:url value="/home" />'"><h4>M-TODO</h4></a>
+<body style="margin:auto;">
+<a onclick="window.location.href='<spring:url value="/home" />'"><h3 class="blue">M-TODO</h3></a>
 <h1><center>M-Todo Profile</center></h1>
-<form:form modelAttribute="profile">
+<form:form modelAttribute="profile" action="profile/update" method="post" enctype="multipart/form-data">
 	<div class="input-group">
 		<label>Avatar</label>
-		<form:input path="avatar"/>
+		<input type="file" name="file"/>
 	</div>
 	<div class="input-group">
 		<label>Email</label>

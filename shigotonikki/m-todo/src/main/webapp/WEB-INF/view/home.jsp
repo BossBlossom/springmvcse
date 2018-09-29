@@ -6,11 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<spring:url value="/resources/css/app.css"/>" type="text/css">
-</head>
+<link rel="stylesheet" type="text/css" href="<spring:url value="/resources/css/app.css"/>">
 <body style="margin:auto;">
 <a onclick="window.location.href='<spring:url value="/home" />'"><h3 class="blue">M-TODO</h3></a>
-<table class="tbl-border">
+<table id="example" class="tbl-border">
 <thead>
 	<tr>
 		<th>No.</th>

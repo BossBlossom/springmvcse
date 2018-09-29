@@ -26,6 +26,11 @@ table.tbl-border {
 	width: 100%;
 }
 
+table.tbl-border tbody {
+	border-collapse: collapse;
+    border: 1px solid black;
+}
+
 table.tbl-border th, td {
 	margin: 0; padding : 5px;
 	text-align: left;

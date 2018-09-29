@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="<spring:url value='/resources/css/app.css'/>">
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 </head>
-<body>
-<a onclick="window.location.href='<spring:url value="/home" />'"><h4>M-TODO</h4></a>
+<body style="margin:auto;">
+<a onclick="window.location.href='<spring:url value="/home" />'"><h3 class="blue">M-TODO</h3></a>
 <h1><center>VIEW M-TODO</center></h1>
 <form:form modelAttribute="m_todo">
 	<div class="input-group">

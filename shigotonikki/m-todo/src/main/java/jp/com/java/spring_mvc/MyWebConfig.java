@@ -24,6 +24,11 @@ import org.springframework.web.servlet.view.JstlView;
 public class MyWebConfig implements WebMvcConfigurer
 {
 	private int maxUploadSizeInMb = 5 * 1024 * 1024; //5MB
+	/**
+	 * Web MVC
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 */
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) 
 	{
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
@@ -38,6 +43,10 @@ public class MyWebConfig implements WebMvcConfigurer
 		return viewResolver;
 	}
 	
+	/**
+	 * Data Source
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 */
 	@Bean
 	public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
